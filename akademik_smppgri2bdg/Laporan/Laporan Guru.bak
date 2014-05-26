@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Laporan Guru"
+
+		 language="groovy"		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="555"
+		 columnSpacing="0"
+		 leftMargin="20"
+		 rightMargin="20"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.zoom" value="1.0" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="0" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<queryString language="SQL"><![CDATA[SELECT
+     guru.`nip` AS guru_nip,
+     guru.`nama_guru` AS guru_nama_guru,
+     guru.`tempat_lahir_guru` AS guru_tempat_lahir_guru,
+     guru.`tanggal_lahir_guru` AS guru_tanggal_lahir_guru,
+     guru.`jk_guru` AS guru_jk_guru,
+     guru.`agama_guru` AS guru_agama_guru,
+     guru.`kewarganegaraan_guru` AS guru_kewarganegaraan_guru,
+     guru.`status_guru` AS guru_status_guru,
+     guru.`golongan_guru` AS guru_golongan_guru,
+     guru.`no_telp_guru` AS guru_no_telp_guru,
+     guru.`alamat_guru` AS guru_alamat_guru
+FROM
+     `guru` guru]]></queryString>
+
+	<field name="guru_nip" class="java.lang.String"/>
+	<field name="guru_nama_guru" class="java.lang.String"/>
+	<field name="guru_tempat_lahir_guru" class="java.lang.String"/>
+	<field name="guru_tanggal_lahir_guru" class="java.lang.String"/>
+	<field name="guru_jk_guru" class="java.lang.String"/>
+	<field name="guru_agama_guru" class="java.lang.String"/>
+	<field name="guru_kewarganegaraan_guru" class="java.lang.String"/>
+	<field name="guru_status_guru" class="java.lang.String"/>
+	<field name="guru_golongan_guru" class="java.lang.String"/>
+	<field name="guru_no_telp_guru" class="java.lang.String"/>
+	<field name="guru_alamat_guru" class="java.lang.String"/>
+
+	<variable name="guru_no_telp_guru_1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{guru_no_telp_guru}]]></variableExpression>
+	</variable>
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="94"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="86"
+						width="555"
+						height="1"
+						key="line"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="2.5" lineStyle="Double"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="106"
+						y="0"
+						width="345"
+						height="80"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[YAYASAN PEMBINA LEMBAGA PENDIDIKAN DASAR DAN MENENGAH
+(YPLP DIKDASMEN PGRI)
+SMP PGRI 2 KOTA BANDUNG
+Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
+YAYASAN PEMBINA LEMBAGA PENDIDIKAN DASAR DAN MENENGAH
+(YPLP DIKDASMEN PGRI)
+SMP PGRI 2 KOTA BANDUNG
+Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
+]]></text>
+				</staticText>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="35"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="8"
+						width="554"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[LAPORAN GURU]]></text>
+				</staticText>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="27"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="0"
+						width="100"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[NIP]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="113"
+						y="0"
+						width="100"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Nama Guru]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="225"
+						y="0"
+						width="100"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Status]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="337"
+						y="0"
+						width="100"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Golongan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="455"
+						y="0"
+						width="100"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[No Telp]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="23"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="0"
+						width="100"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{guru_nip}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="113"
+						y="0"
+						width="100"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{guru_nama_guru}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="225"
+						y="0"
+						width="100"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{guru_status_guru}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="337"
+						y="3"
+						width="100"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{guru_golongan_guru}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="455"
+						y="0"
+						width="100"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{guru_no_telp_guru}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="172"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="419"
+						y="125"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Pembina Utama Muda IV/c]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="419"
+						y="105"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Drs. H. Amin Wijaya, M.MPd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="419"
+						y="11"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Bandung,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="419"
+						y="31"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[Kepala Sekolah,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="419"
+						y="145"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="12"/>
+					</textElement>
+				<text><![CDATA[NIP. 19600308 198303 1 008]]></text>
+				</staticText>
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="54"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="42"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Laporan Siswa"
+
+		 language="groovy"		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="555"
+		 columnSpacing="0"
+		 leftMargin="20"
+		 rightMargin="20"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.zoom" value="0.9090909090909098" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="0" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<queryString language="SQL"><![CDATA[SELECT
+     siswa.`nis` AS siswa_nis,
+     siswa.`nama_siswa` AS siswa_nama_siswa,
+     siswa.`tempat_lahir_siswa` AS siswa_tempat_lahir_siswa,
+     siswa.`tanggal_lahir_siswa` AS siswa_tanggal_lahir_siswa,
+     siswa.`jk_siswa` AS siswa_jk_siswa,
+     siswa.`agama_siswa` AS siswa_agama_siswa,
+     siswa.`kewarganegaraan_siswa` AS siswa_kewarganegaraan_siswa,
+     siswa.`no_telp_siswa` AS siswa_no_telp_siswa,
+     siswa.`anak_ke` AS siswa_anak_ke,
+     siswa.`saudara` AS siswa_saudara,
+     siswa.`berat_siswa` AS siswa_berat_siswa,
+     siswa.`tinggi_siswa` AS siswa_tinggi_siswa,
+     siswa.`golongan_darah_siswa` AS siswa_golongan_darah_siswa,
+     siswa.`alamat_siswa` AS siswa_alamat_siswa,
+     siswa.`nama_ayah` AS siswa_nama_ayah,
+     siswa.`pendidikan_ayah` AS siswa_pendidikan_ayah,
+     siswa.`pekerjaan_ayah` AS siswa_pekerjaan_ayah,
+     siswa.`nama_ibu` AS siswa_nama_ibu,
+     siswa.`pendidikan_ibu` AS siswa_pendidikan_ibu,
+     siswa.`pekerjaan_ibu` AS siswa_pekerjaan_ibu,
+     siswa.`no_telp_ortu` AS siswa_no_telp_ortu,
+     siswa.`nama_wali` AS siswa_nama_wali,
+     siswa.`pendidikan_wali` AS siswa_pendidikan_wali,
+     siswa.`pekerjaan_wali` AS siswa_pekerjaan_wali,
+     siswa.`hubungan_wali` AS siswa_hubungan_wali,
+     siswa.`no_telp_wali` AS siswa_no_telp_wali
+FROM
+     `siswa` siswa]]></queryString>
+
+	<field name="siswa_nis" class="java.lang.String"/>
+	<field name="siswa_nama_siswa" class="java.lang.String"/>
+	<field name="siswa_tempat_lahir_siswa" class="java.lang.String"/>
+	<field name="siswa_tanggal_lahir_siswa" class="java.lang.String"/>
+	<field name="siswa_jk_siswa" class="java.lang.String"/>
+	<field name="siswa_agama_siswa" class="java.lang.String"/>
+	<field name="siswa_kewarganegaraan_siswa" class="java.lang.String"/>
+	<field name="siswa_no_telp_siswa" class="java.lang.String"/>
+	<field name="siswa_anak_ke" class="java.lang.String"/>
+	<field name="siswa_saudara" class="java.lang.String"/>
+	<field name="siswa_berat_siswa" class="java.lang.String"/>
+	<field name="siswa_tinggi_siswa" class="java.lang.String"/>
+	<field name="siswa_golongan_darah_siswa" class="java.lang.String"/>
+	<field name="siswa_alamat_siswa" class="java.lang.String"/>
+	<field name="siswa_nama_ayah" class="java.lang.String"/>
+	<field name="siswa_pendidikan_ayah" class="java.lang.String"/>
+	<field name="siswa_pekerjaan_ayah" class="java.lang.String"/>
+	<field name="siswa_nama_ibu" class="java.lang.String"/>
+	<field name="siswa_pendidikan_ibu" class="java.lang.String"/>
+	<field name="siswa_pekerjaan_ibu" class="java.lang.String"/>
+	<field name="siswa_no_telp_ortu" class="java.lang.String"/>
+	<field name="siswa_nama_wali" class="java.lang.String"/>
+	<field name="siswa_pendidikan_wali" class="java.lang.String"/>
+	<field name="siswa_pekerjaan_wali" class="java.lang.String"/>
+	<field name="siswa_hubungan_wali" class="java.lang.String"/>
+	<field name="siswa_no_telp_wali" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="95"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="0"
+						y="86"
+						width="555"
+						height="1"
+						key="line"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="2.5" lineStyle="Double"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="106"
+						y="0"
+						width="345"
+						height="80"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[YAYASAN PEMBINA LEMBAGA PENDIDIKAN DASAR DAN MENENGAH
+(YPLP DIKDASMEN PGRI)
+SMP PGRI 2 KOTA BANDUNG
+Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
+YAYASAN PEMBINA LEMBAGA PENDIDIKAN DASAR DAN MENENGAH
+(YPLP DIKDASMEN PGRI)
+SMP PGRI 2 KOTA BANDUNG
+Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
+]]></text>
+				</staticText>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="35"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="1"
+						y="7"
+						width="554"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[LAPORAN SISWA]]></text>
+				</staticText>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="26"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[NIS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="79"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nama Siswa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="158"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Tempat Lahir]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="237"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Tanggal Lahir]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="316"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="395"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[No Telp.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="474"
+						y="0"
+						width="79"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Alamat]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="28"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_nis}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="79"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_nama_siswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="158"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_tempat_lahir_siswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="237"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_tanggal_lahir_siswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="316"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_jk_siswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="395"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_no_telp_siswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="474"
+						y="0"
+						width="79"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{siswa_alamat_siswa}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="168"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="417"
+						y="8"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+				<text><![CDATA[Bandung,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="417"
+						y="28"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+				<text><![CDATA[Kepala Sekolah,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="427"
+						y="123"
+						width="106"
+						height="20"
+						key="staticText-2"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+				<text><![CDATA[Edi   Suwanto S.Pd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="405"
+						y="141"
+						width="149"
+						height="20"
+						key="staticText-3"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[NUPTK.1851747648200002]]></text>
+				</staticText>
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="54"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="42"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>

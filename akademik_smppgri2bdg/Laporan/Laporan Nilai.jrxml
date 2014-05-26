@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<!-- Created with iReport - A designer for JasperReports -->
+<!DOCTYPE jasperReport PUBLIC "//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+<jasperReport
+		 name="Laporan Nilai"
+
+		 language="groovy"		 columnCount="1"
+		 printOrder="Vertical"
+		 orientation="Portrait"
+		 pageWidth="595"
+		 pageHeight="842"
+		 columnWidth="555"
+		 columnSpacing="0"
+		 leftMargin="20"
+		 rightMargin="20"
+		 topMargin="20"
+		 bottomMargin="20"
+		 whenNoDataType="NoPages"
+		 isTitleNewPage="false"
+		 isSummaryNewPage="false">
+	<property name="ireport.zoom" value="1.0" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="0" />
+	<property name="ireport.scriptlethandling" value="0" />
+	<property name="ireport.encoding" value="UTF-8" />
+	<import value="java.util.*" />
+	<import value="net.sf.jasperreports.engine.*" />
+	<import value="net.sf.jasperreports.engine.data.*" />
+
+	<queryString language="SQL"><![CDATA[SELECT
+     nilai.`kode_mata_pelajaran` AS nilai_kode_mata_pelajaran,
+     nilai.`nama_mata_pelajaran` AS nilai_nama_mata_pelajaran,
+     nilai.`nama_guru` AS nilai_nama_guru,
+     nilai.`nama_kelas` AS nilai_nama_kelas,
+     nilai.`persentase_nh1` AS nilai_persentase_nh1,
+     nilai.`persentase_nh2` AS nilai_persentase_nh2,
+     nilai.`persentase_nh3` AS nilai_persentase_nh3,
+     nilai.`persentase_nuts` AS nilai_persentase_nuts,
+     nilai.`persentase_nuas` AS nilai_persentase_nuas,
+     nilai.`nis` AS nilai_nis,
+     nilai.`nama_siswa` AS nilai_nama_siswa,
+     nilai.`nh1` AS nilai_nh1,
+     nilai.`nh2` AS nilai_nh2,
+     nilai.`nh3` AS nilai_nh3,
+     nilai.`nuts` AS nilai_nuts,
+     nilai.`nuas` AS nilai_nuas,
+     nilai.`nakhir` AS nilai_nakhir
+FROM
+     `nilai` nilai]]></queryString>
+
+	<field name="nilai_kode_mata_pelajaran" class="java.lang.String"/>
+	<field name="nilai_nama_mata_pelajaran" class="java.lang.String"/>
+	<field name="nilai_nama_guru" class="java.lang.String"/>
+	<field name="nilai_nama_kelas" class="java.lang.String"/>
+	<field name="nilai_persentase_nh1" class="java.lang.String"/>
+	<field name="nilai_persentase_nh2" class="java.lang.String"/>
+	<field name="nilai_persentase_nh3" class="java.lang.String"/>
+	<field name="nilai_persentase_nuts" class="java.lang.String"/>
+	<field name="nilai_persentase_nuas" class="java.lang.String"/>
+	<field name="nilai_nis" class="java.lang.String"/>
+	<field name="nilai_nama_siswa" class="java.lang.String"/>
+	<field name="nilai_nh1" class="java.lang.String"/>
+	<field name="nilai_nh2" class="java.lang.String"/>
+	<field name="nilai_nh3" class="java.lang.String"/>
+	<field name="nilai_nuts" class="java.lang.String"/>
+	<field name="nilai_nuas" class="java.lang.String"/>
+	<field name="nilai_nakhir" class="java.lang.String"/>
+
+		<background>
+			<band height="0"  isSplitAllowed="true" >
+			</band>
+		</background>
+		<title>
+			<band height="91"  isSplitAllowed="true" >
+				<line direction="TopDown">
+					<reportElement
+						x="1"
+						y="85"
+						width="555"
+						height="1"
+						key="line"/>
+					<graphicElement stretchType="NoStretch">
+					<pen lineWidth="2.5" lineStyle="Double"/>
+</graphicElement>
+				</line>
+				<staticText>
+					<reportElement
+						x="106"
+						y="0"
+						width="345"
+						height="80"
+						key="staticText-1"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[YAYASAN PEMBINA LEMBAGA PENDIDIKAN DASAR DAN MENENGAH
+(YPLP DIKDASMEN PGRI)
+SMP PGRI 2 KOTA BANDUNG
+Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
+YAYASAN PEMBINA LEMBAGA PENDIDIKAN DASAR DAN MENENGAH
+(YPLP DIKDASMEN PGRI)
+SMP PGRI 2 KOTA BANDUNG
+Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
+]]></text>
+				</staticText>
+			</band>
+		</title>
+		<pageHeader>
+			<band height="54"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="9"
+						width="554"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[LAPORAN NILAI]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="0"
+						y="29"
+						width="554"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[TAHUN AJARAN 2012 - 2013]]></text>
+				</staticText>
+			</band>
+		</pageHeader>
+		<columnHeader>
+			<band height="26"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="0"
+						y="0"
+						width="86"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Mata Pelajaran]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="86"
+						y="0"
+						width="108"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nama Siswa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="380"
+						y="0"
+						width="54"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nilai UTS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="434"
+						y="0"
+						width="61"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nilai UAS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="495"
+						y="0"
+						width="60"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nilai Akhir]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="194"
+						y="0"
+						width="62"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nilai Harian1]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="256"
+						y="0"
+						width="62"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nilai Harian2]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="318"
+						y="0"
+						width="62"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<text><![CDATA[Nilai Harian3]]></text>
+				</staticText>
+			</band>
+		</columnHeader>
+		<detail>
+			<band height="23"  isSplitAllowed="true" >
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="0"
+						y="0"
+						width="86"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nama_mata_pelajaran}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="86"
+						y="0"
+						width="108"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nama_siswa}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="380"
+						y="0"
+						width="54"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nuts}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="495"
+						y="0"
+						width="60"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nakhir}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="194"
+						y="0"
+						width="62"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nh1}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="256"
+						y="0"
+						width="62"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nh2}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="318"
+						y="0"
+						width="62"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nh3}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="false" isBlankWhenNull="false" evaluationTime="Now" hyperlinkType="None"  hyperlinkTarget="Self" >
+					<reportElement
+						x="434"
+						y="0"
+						width="61"
+						height="20"
+						key="textField"/>
+					<box></box>
+					<textElement textAlignment="Center">
+						<font fontName="Times New Roman"/>
+					</textElement>
+				<textFieldExpression   class="java.lang.String"><![CDATA[$F{nilai_nuas}]]></textFieldExpression>
+				</textField>
+			</band>
+		</detail>
+		<columnFooter>
+			<band height="170"  isSplitAllowed="true" >
+				<staticText>
+					<reportElement
+						x="418"
+						y="7"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+				<text><![CDATA[Bandung,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="418"
+						y="27"
+						width="136"
+						height="20"
+						key="staticText"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" size="10"/>
+					</textElement>
+				<text><![CDATA[Kepala Sekolah,]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="427"
+						y="113"
+						width="106"
+						height="20"
+						key="staticText-2"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+				<text><![CDATA[Edi   Suwanto S.Pd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement
+						x="405"
+						y="131"
+						width="149"
+						height="20"
+						key="staticText-3"/>
+					<box></box>
+					<textElement>
+						<font fontName="Times New Roman" pdfFontName="Helvetica-Bold" size="12" isBold="true"/>
+					</textElement>
+				<text><![CDATA[NUPTK.1851747648200002]]></text>
+				</staticText>
+			</band>
+		</columnFooter>
+		<pageFooter>
+			<band height="54"  isSplitAllowed="true" >
+			</band>
+		</pageFooter>
+		<summary>
+			<band height="42"  isSplitAllowed="true" >
+			</band>
+		</summary>
+</jasperReport>
