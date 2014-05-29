@@ -6,7 +6,7 @@
 /*
  * FInputDataUser.java
  *
- * Created on 26 Jun 13, 17:19:57
+ * Created on 26 May 14, 19:45:38
  */
 
 package akademik_smppgri2bdg;
@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dey
+ * @author asep
  */
 public class FInputDataUser extends javax.swing.JFrame {
     public DefaultTableModel tabModel;
@@ -44,7 +44,6 @@ public class FInputDataUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         PanelDataUser = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -80,9 +79,7 @@ public class FInputDataUser extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form Input Data User");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel2.setText("INPUT DATA USER");
-
+        PanelDataUser.setBackground(new java.awt.Color(204, 204, 255));
         PanelDataUser.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA USER :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         jLabel4.setText("Jabatan");
@@ -190,13 +187,13 @@ public class FInputDataUser extends javax.swing.JFrame {
                     .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelDataUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtUserID, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(txtNamaGuru, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(CBJabatan, javax.swing.GroupLayout.Alignment.TRAILING, 0, 158, Short.MAX_VALUE)
-                    .addComponent(txtKodeMatPel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
-                    .addComponent(txtNamaMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
+                    .addComponent(txtUserID, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(txtNamaGuru, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(CBJabatan, javax.swing.GroupLayout.Alignment.TRAILING, 0, 232, Short.MAX_VALUE)
+                    .addComponent(txtKodeMatPel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(txtNamaMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PanelDataUserLayout.setVerticalGroup(
@@ -232,25 +229,29 @@ public class FInputDataUser extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelButtonUser.setBackground(new java.awt.Color(204, 204, 255));
         PanelButtonUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelButtonUser.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/add.png"))); // NOI18N
         BTambah.setText("Tambah");
         BTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTambahActionPerformed(evt);
             }
         });
-        PanelButtonUser.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
+        PanelButtonUser.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
 
+        BEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/edit.png"))); // NOI18N
         BEdit.setText("Edit");
         BEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BEditActionPerformed(evt);
             }
         });
-        PanelButtonUser.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 80, -1));
+        PanelButtonUser.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, -1));
 
+        BSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/save.png"))); // NOI18N
         BSimpan.setText("Simpan");
         BSimpan.setEnabled(false);
         BSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -258,16 +259,18 @@ public class FInputDataUser extends javax.swing.JFrame {
                 BSimpanActionPerformed(evt);
             }
         });
-        PanelButtonUser.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 80, -1));
+        PanelButtonUser.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 110, -1));
 
+        BHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/delete.png"))); // NOI18N
         BHapus.setText("Hapus");
         BHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BHapusActionPerformed(evt);
             }
         });
-        PanelButtonUser.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 80, -1));
+        PanelButtonUser.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 110, -1));
 
+        BBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cancel.png"))); // NOI18N
         BBatal.setText("Batal");
         BBatal.setEnabled(false);
         BBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -275,22 +278,31 @@ public class FInputDataUser extends javax.swing.JFrame {
                 BBatalActionPerformed(evt);
             }
         });
-        PanelButtonUser.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 80, -1));
+        PanelButtonUser.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 110, -1));
 
+        BKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/close.png"))); // NOI18N
         BKeluar.setText("Keluar");
         BKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BKeluarActionPerformed(evt);
             }
         });
-        PanelButtonUser.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 80, -1));
+        PanelButtonUser.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 110, -1));
 
+        PanelPencarianUSer.setBackground(new java.awt.Color(204, 204, 255));
         PanelPencarianUSer.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel28.setText("Cari Berdasarkan");
 
         CBCariUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "User ID", "Username" }));
 
+        txtCariUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariUserActionPerformed(evt);
+            }
+        });
+
+        BCariUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/search.png"))); // NOI18N
         BCariUser.setText("Cari");
         BCariUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,9 +320,9 @@ public class FInputDataUser extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(CBCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCariUser, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                .addComponent(txtCariUser, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BCariUser)
                 .addContainerGap())
         );
         PanelPencarianUSerLayout.setVerticalGroup(
@@ -319,14 +331,16 @@ public class FInputDataUser extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelPencarianUSerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(CBCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CBCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCariUser, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BCariUser))
                 .addContainerGap())
         );
 
+        PanelTabelUser.setBackground(new java.awt.Color(204, 204, 255));
         PanelTabelUser.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA TABEL USER", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
+        TUser.setBackground(new java.awt.Color(255, 255, 204));
         TUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -346,13 +360,13 @@ public class FInputDataUser extends javax.swing.JFrame {
             PanelTabelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTabelUserLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PanelTabelUserLayout.setVerticalGroup(
             PanelTabelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTabelUserLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -362,35 +376,32 @@ public class FInputDataUser extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelDataUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelButtonUser, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelPencarianUSer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelTabelUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(275, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(271, 271, 271))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PanelButtonUser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 881, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PanelPencarianUSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(PanelDataUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(13, 13, 13)))
+                        .addComponent(PanelTabelUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(11, 11, 11)
+                .addComponent(PanelButtonUser, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(PanelDataUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanelButtonUser, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelTabelUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(PanelPencarianUSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(PanelPencarianUSer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PanelTabelUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -614,6 +625,10 @@ public class FInputDataUser extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamaGuruKeyTyped
 
+    private void txtCariUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCariUserActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -641,7 +656,6 @@ public class FInputDataUser extends javax.swing.JFrame {
     private javax.swing.JPanel PanelTabelUser;
     private javax.swing.JTable TUser;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel28;

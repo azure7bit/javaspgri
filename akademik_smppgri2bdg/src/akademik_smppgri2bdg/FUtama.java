@@ -6,7 +6,7 @@
 /*
  * FUtama.java
  *
- * Created on Apr 7, 2013, 1:13:51 PM
+ * Created on 26 May 14, 19:45:38
  */
 
 package akademik_smppgri2bdg;
@@ -89,25 +89,31 @@ public class FUtama extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEM INFORMASI AKADEMIK SMP PGRI 2 BANDUNG");
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(255, 255, 204));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        PanelLogin.setBackground(new java.awt.Color(204, 204, 255));
+        PanelLogin.setBorder(new javax.swing.border.MatteBorder(null));
+        PanelLogin.setForeground(new java.awt.Color(255, 255, 255));
         PanelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("SISTEM INFORMASI AKADEMIK");
-        PanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 290, -1));
+        PanelLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 180, -1));
 
         jLabel2.setText("SMP PGRI 2 BANDUNG");
-        PanelLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, -1, -1));
+        PanelLogin.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, -1, -1));
 
         jLabel3.setText("Jln. Ciumbuleuit Atas No. 48");
-        PanelLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 50, 340, -1));
+        PanelLogin.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 340, -1));
 
         jLabel5.setText("Username");
-        PanelLogin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 20));
+        PanelLogin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, 20));
 
         jLabel6.setText("Password");
-        PanelLogin.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 20));
-        PanelLogin.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, 140, -1));
+        PanelLogin.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, 20));
+        PanelLogin.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 140, -1));
 
         BLogin.setText("Login");
         BLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -115,7 +121,7 @@ public class FUtama extends javax.swing.JFrame {
                 BLoginActionPerformed(evt);
             }
         });
-        PanelLogin.add(BLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 80, -1));
+        PanelLogin.add(BLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 80, -1));
 
         BKeluar.setText("Keluar");
         BKeluar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,27 +129,33 @@ public class FUtama extends javax.swing.JFrame {
                 BKeluarActionPerformed(evt);
             }
         });
-        PanelLogin.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 80, -1));
+        PanelLogin.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 80, -1));
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
             }
         });
-        PanelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 140, -1));
+        PanelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
 
         jLabel7.setText("Jabatan");
-        PanelLogin.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, 20));
+        PanelLogin.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, 20));
 
         CBJabatanUser.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--Pilih--", "Guru", "Kesiswaan", "Kepala Sekolah", "Admin" }));
-        PanelLogin.add(CBJabatanUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 140, -1));
+        CBJabatanUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBJabatanUserActionPerformed(evt);
+            }
+        });
+        PanelLogin.add(CBJabatanUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, 140, -1));
 
+        jLabel8.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 204));
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/logo.jpg"))); // NOI18N
-        jLabel8.setText("jLabel8");
-        PanelLogin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 200, 150));
+        PanelLogin.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 200, 150));
         jLabel8.getAccessibleContext().setAccessibleName("jLabel14");
 
-        getContentPane().add(PanelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 363, 370));
+        getContentPane().add(PanelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 250));
 
         File.setText("File");
         File.addActionListener(new java.awt.event.ActionListener() {
@@ -689,6 +701,10 @@ String reportSource;
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void CBJabatanUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBJabatanUserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CBJabatanUserActionPerformed
 
     /**
     * @param args the command line arguments

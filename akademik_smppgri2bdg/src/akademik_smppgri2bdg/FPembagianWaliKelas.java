@@ -6,7 +6,7 @@
 /*
  * FPembagianWaliKelas.java
  *
- * Created on 30 Jun 13, 19:45:38
+ * Created on 26 May 14, 19:45:38
  */
 
 package akademik_smppgri2bdg;
@@ -43,7 +43,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        PanelTabelWaliKelas = new javax.swing.JPanel();
         PanelDataWaliKelas = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -54,9 +54,6 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         txtStatusWaliKelas = new javax.swing.JTextField();
         txtGolonganWaliKelas = new javax.swing.JTextField();
         txtNamaWaliKelas = new javax.swing.JTextField();
-        PanelTabelWaliKelas = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TWaliKelas = new javax.swing.JTable();
         PanelButtonWaliKelas = new javax.swing.JPanel();
         BTambah = new javax.swing.JButton();
         BEdit = new javax.swing.JButton();
@@ -64,6 +61,8 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         BHapus = new javax.swing.JButton();
         BBatal = new javax.swing.JButton();
         BKeluar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TWaliKelas = new javax.swing.JTable();
         PanelPencarianWaliKelas = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         CBCariWaliKelas = new javax.swing.JComboBox();
@@ -73,8 +72,8 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form Pembagian Wali Kelas");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel2.setText("PEMBAGIAN WALI KELAS");
+        PanelTabelWaliKelas.setBackground(new java.awt.Color(204, 204, 255));
+        PanelTabelWaliKelas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA TABEL WALI KELAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         PanelDataWaliKelas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
@@ -145,7 +144,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
                         .addComponent(txtStatusWaliKelas, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtGolonganWaliKelas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
                     .addComponent(CBKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
+                    .addComponent(txtNamaWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
                 .addContainerGap())
         );
         PanelDataWaliKelasLayout.setVerticalGroup(
@@ -169,8 +168,84 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        PanelTabelWaliKelas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA TABEL WALI KELAS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
+        javax.swing.GroupLayout PanelTabelWaliKelasLayout = new javax.swing.GroupLayout(PanelTabelWaliKelas);
+        PanelTabelWaliKelas.setLayout(PanelTabelWaliKelasLayout);
+        PanelTabelWaliKelasLayout.setHorizontalGroup(
+            PanelTabelWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelTabelWaliKelasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelDataWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        PanelTabelWaliKelasLayout.setVerticalGroup(
+            PanelTabelWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelTabelWaliKelasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanelDataWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
+        PanelButtonWaliKelas.setBackground(new java.awt.Color(204, 204, 255));
+        PanelButtonWaliKelas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PanelButtonWaliKelas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/add.png"))); // NOI18N
+        BTambah.setText("Tambah");
+        BTambah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTambahActionPerformed(evt);
+            }
+        });
+        PanelButtonWaliKelas.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
+
+        BEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/edit.png"))); // NOI18N
+        BEdit.setText("Edit");
+        BEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BEditActionPerformed(evt);
+            }
+        });
+        PanelButtonWaliKelas.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, -1));
+
+        BSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/save.png"))); // NOI18N
+        BSimpan.setText("Simpan");
+        BSimpan.setEnabled(false);
+        BSimpan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BSimpanActionPerformed(evt);
+            }
+        });
+        PanelButtonWaliKelas.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 110, -1));
+
+        BHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/delete.png"))); // NOI18N
+        BHapus.setText("Hapus");
+        BHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BHapusActionPerformed(evt);
+            }
+        });
+        PanelButtonWaliKelas.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 110, -1));
+
+        BBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cancel.png"))); // NOI18N
+        BBatal.setText("Batal");
+        BBatal.setEnabled(false);
+        BBatal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBatalActionPerformed(evt);
+            }
+        });
+        PanelButtonWaliKelas.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 110, -1));
+
+        BKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/close.png"))); // NOI18N
+        BKeluar.setText("Keluar");
+        BKeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BKeluarActionPerformed(evt);
+            }
+        });
+        PanelButtonWaliKelas.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 110, -1));
+
+        TWaliKelas.setBackground(new java.awt.Color(255, 255, 204));
         TWaliKelas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -184,75 +259,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TWaliKelas);
 
-        javax.swing.GroupLayout PanelTabelWaliKelasLayout = new javax.swing.GroupLayout(PanelTabelWaliKelas);
-        PanelTabelWaliKelas.setLayout(PanelTabelWaliKelasLayout);
-        PanelTabelWaliKelasLayout.setHorizontalGroup(
-            PanelTabelWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelTabelWaliKelasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        PanelTabelWaliKelasLayout.setVerticalGroup(
-            PanelTabelWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelTabelWaliKelasLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        PanelButtonWaliKelas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        PanelButtonWaliKelas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        BTambah.setText("Tambah");
-        BTambah.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTambahActionPerformed(evt);
-            }
-        });
-        PanelButtonWaliKelas.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
-
-        BEdit.setText("Edit");
-        BEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BEditActionPerformed(evt);
-            }
-        });
-        PanelButtonWaliKelas.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 80, -1));
-
-        BSimpan.setText("Simpan");
-        BSimpan.setEnabled(false);
-        BSimpan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BSimpanActionPerformed(evt);
-            }
-        });
-        PanelButtonWaliKelas.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 80, -1));
-
-        BHapus.setText("Hapus");
-        BHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BHapusActionPerformed(evt);
-            }
-        });
-        PanelButtonWaliKelas.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 80, -1));
-
-        BBatal.setText("Batal");
-        BBatal.setEnabled(false);
-        BBatal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BBatalActionPerformed(evt);
-            }
-        });
-        PanelButtonWaliKelas.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 80, -1));
-
-        BKeluar.setText("Keluar");
-        BKeluar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BKeluarActionPerformed(evt);
-            }
-        });
-        PanelButtonWaliKelas.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 80, -1));
-
+        PanelPencarianWaliKelas.setBackground(new java.awt.Color(204, 204, 255));
         PanelPencarianWaliKelas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel28.setText("Cari Berdasarkan");
@@ -264,6 +271,13 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
             }
         });
 
+        txtCariWaliKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariWaliKelasActionPerformed(evt);
+            }
+        });
+
+        BCariWaliKelas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/search.png"))); // NOI18N
         BCariWaliKelas.setText("Cari");
         BCariWaliKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,25 +290,26 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         PanelPencarianWaliKelasLayout.setHorizontalGroup(
             PanelPencarianWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPencarianWaliKelasLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(jLabel28)
-                .addGap(6, 6, 6)
-                .addComponent(CBCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(CBCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BCariWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addComponent(BCariWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PanelPencarianWaliKelasLayout.setVerticalGroup(
             PanelPencarianWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPencarianWaliKelasLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(PanelPencarianWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel28)
-                    .addComponent(CBCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BCariWaliKelas))
+            .addGroup(PanelPencarianWaliKelasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPencarianWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPencarianWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel28)
+                        .addComponent(txtCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BCariWaliKelas))
+                    .addComponent(CBCariWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -303,36 +318,33 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PanelDataWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelTabelWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PanelPencarianWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(248, 248, 248)
-                        .addComponent(jLabel2)))
+                            .addComponent(PanelPencarianWaliKelas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(17, 17, 17)
+                .addContainerGap()
+                .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(PanelTabelWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(PanelTabelWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(PanelPencarianWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(PanelDataWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, 0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
@@ -545,6 +557,10 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtNamaWaliKelasKeyPressed
 
+    private void txtCariWaliKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariWaliKelasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCariWaliKelasActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -572,7 +588,6 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     private javax.swing.JPanel PanelTabelWaliKelas;
     private javax.swing.JTable TWaliKelas;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel28;

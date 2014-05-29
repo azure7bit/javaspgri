@@ -7,7 +7,8 @@ package akademik_smppgri2bdg;
 
 /**
  *
- * @author dey
+ * Created on 26 May 14, 19:45:38
+ * @author asep
  */
 public class Main {
 

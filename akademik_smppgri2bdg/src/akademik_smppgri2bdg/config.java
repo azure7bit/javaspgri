@@ -9,7 +9,7 @@ import java.util.prefs.Preferences;
 
 /**
  *
- * @author Ryan
+ * @author asep
  */
 public class config {
 

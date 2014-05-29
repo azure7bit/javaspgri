@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dey
+ * @author asep
  */
 public class FInputDataGuru extends javax.swing.JFrame {
     public DefaultTableModel tabModel;
@@ -45,7 +45,8 @@ public class FInputDataGuru extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         PanelDataGuru = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -85,12 +86,12 @@ public class FInputDataGuru extends javax.swing.JFrame {
         BBatal = new javax.swing.JButton();
         BKeluar = new javax.swing.JButton();
 
+        jScrollPane2.setViewportView(jEditorPane1);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form Input Data Guru");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel2.setText("INPUT DATA GURU");
-
+        PanelDataGuru.setBackground(new java.awt.Color(204, 204, 255));
         PanelDataGuru.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA GURU :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         jLabel4.setText("NIP");
@@ -209,7 +210,7 @@ public class FInputDataGuru extends javax.swing.JFrame {
                         .addComponent(CBKewarganegaraanGuru, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(CBAgamaGuru, javax.swing.GroupLayout.Alignment.LEADING, 0, 94, Short.MAX_VALUE))
                     .addComponent(txtNoTelpGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         PanelDataGuruLayout.setVerticalGroup(
             PanelDataGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,11 +257,13 @@ public class FInputDataGuru extends javax.swing.JFrame {
                 .addGroup(PanelDataGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNoTelpGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
+        PanelTabelGuru.setBackground(new java.awt.Color(204, 204, 255));
         PanelTabelGuru.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA TABEL GURU", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
+        TGuru.setBackground(new java.awt.Color(255, 255, 204));
         TGuru.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -286,10 +289,11 @@ public class FInputDataGuru extends javax.swing.JFrame {
         PanelTabelGuruLayout.setVerticalGroup(
             PanelTabelGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTabelGuruLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
+        PanelPencarianGuru.setBackground(new java.awt.Color(204, 204, 255));
         PanelPencarianGuru.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel28.setText("Cari Berdasarkan");
@@ -301,6 +305,13 @@ public class FInputDataGuru extends javax.swing.JFrame {
             }
         });
 
+        txtCariGuru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCariGuruActionPerformed(evt);
+            }
+        });
+
+        BCariGuru.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/search.png"))); // NOI18N
         BCariGuru.setText("Cari");
         BCariGuru.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -313,47 +324,50 @@ public class FInputDataGuru extends javax.swing.JFrame {
         PanelPencarianGuruLayout.setHorizontalGroup(
             PanelPencarianGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPencarianGuruLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel28)
-                .addGap(6, 6, 6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(CBCariGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtCariGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BCariGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BCariGuru, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                .addContainerGap())
         );
         PanelPencarianGuruLayout.setVerticalGroup(
             PanelPencarianGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPencarianGuruLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelPencarianGuruLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
                 .addGroup(PanelPencarianGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
                     .addComponent(CBCariGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCariGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BCariGuru))
-                .addContainerGap())
+                    .addComponent(txtCariGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BCariGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelButtonGuru.setBackground(new java.awt.Color(204, 204, 255));
         PanelButtonGuru.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelButtonGuru.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/add.png"))); // NOI18N
         BTambah.setText("Tambah");
         BTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTambahActionPerformed(evt);
             }
         });
-        PanelButtonGuru.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
+        PanelButtonGuru.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
 
+        BEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/edit.png"))); // NOI18N
         BEdit.setText("Edit");
         BEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BEditActionPerformed(evt);
             }
         });
-        PanelButtonGuru.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 80, -1));
+        PanelButtonGuru.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, -1));
 
+        BSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/save.png"))); // NOI18N
         BSimpan.setText("Simpan");
         BSimpan.setEnabled(false);
         BSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -361,16 +375,18 @@ public class FInputDataGuru extends javax.swing.JFrame {
                 BSimpanActionPerformed(evt);
             }
         });
-        PanelButtonGuru.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 80, -1));
+        PanelButtonGuru.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 110, -1));
 
+        BHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/delete.png"))); // NOI18N
         BHapus.setText("Hapus");
         BHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BHapusActionPerformed(evt);
             }
         });
-        PanelButtonGuru.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 80, -1));
+        PanelButtonGuru.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 110, -1));
 
+        BBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cancel.png"))); // NOI18N
         BBatal.setText("Batal");
         BBatal.setEnabled(false);
         BBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -378,50 +394,46 @@ public class FInputDataGuru extends javax.swing.JFrame {
                 BBatalActionPerformed(evt);
             }
         });
-        PanelButtonGuru.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, 80, -1));
+        PanelButtonGuru.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 110, -1));
 
+        BKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/close.png"))); // NOI18N
         BKeluar.setText("Keluar");
         BKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BKeluarActionPerformed(evt);
             }
         });
-        PanelButtonGuru.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 80, -1));
+        PanelButtonGuru.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(PanelDataGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelButtonGuru, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
-                    .addComponent(PanelTabelGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(PanelPencarianGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(414, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(285, 285, 285))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PanelButtonGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 860, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(PanelPencarianGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelDataGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(10, 10, 10)
+                        .addComponent(PanelTabelGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PanelButtonGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PanelDataGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PanelTabelGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(7, 7, 7)
-                        .addComponent(PanelPencarianGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(PanelDataGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanelButtonGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PanelTabelGuru, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                        .addComponent(PanelPencarianGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         pack();
@@ -686,6 +698,10 @@ public class FInputDataGuru extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CBCariGuruActionPerformed
 
+    private void txtCariGuruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariGuruActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCariGuruActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -717,11 +733,11 @@ public class FInputDataGuru extends javax.swing.JFrame {
     private javax.swing.JPanel PanelTabelGuru;
     private javax.swing.JTable TGuru;
     private com.toedter.calendar.JDateChooser dateLahirGuru;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -731,6 +747,7 @@ public class FInputDataGuru extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtAlamatGuru;
     private javax.swing.JTextField txtCariGuru;
     private javax.swing.JTextField txtNIP;

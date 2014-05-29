@@ -161,7 +161,7 @@ Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
 					<textElement textAlignment="Justified">
 						<font fontName="Times New Roman" size="12"/>
 					</textElement>
-				<text><![CDATA[	Yang bertanda tangan dibawah ini Kepala Sekolah SMA Negeri 1 Margahayu Bandung, menerangkan bahwa :]]></text>
+				<text><![CDATA[	Yang bertanda tangan dibawah ini Kepala Sekolah SMP PGRI 2 Bandung, menerangkan bahwa :]]></text>
 				</staticText>
 				<staticText>
 					<reportElement
@@ -213,7 +213,7 @@ Jl. Rereongan Sarupi No 48 Telp. 2031676 Bandung
 					<textElement textAlignment="Justified">
 						<font fontName="Times New Roman" size="12"/>
 					</textElement>
-				<text><![CDATA[Telah DITERIMA di SMA Negeri 1 Margahayu Bandung.]]></text>
+				<text><![CDATA[Telah DITERIMA di SMP PGRI 2  Bandung.]]></text>
 				</staticText>
 				<staticText>
 					<reportElement

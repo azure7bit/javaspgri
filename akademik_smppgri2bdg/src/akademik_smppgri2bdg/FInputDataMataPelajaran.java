@@ -6,7 +6,7 @@
 /*
  * FInputDataMataPelajaran.java
  *
- * Created on 26 Jun 13, 17:19:13
+ * Created on 26 May 14, 19:45:38
  */
 
 package akademik_smppgri2bdg;
@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author dey
+ * @author asep
  */
 public class FInputDataMataPelajaran extends javax.swing.JFrame {
     public DefaultTableModel tabModel;
@@ -44,7 +44,6 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
         PanelDataMatpel = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -72,9 +71,7 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form Input Data Mata Pelajaran");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
-        jLabel2.setText("INPUT DATA MATA PELAJARAN");
-
+        PanelDataMatpel.setBackground(new java.awt.Color(204, 204, 255));
         PanelDataMatpel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA MATA PELAJARAN :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         jLabel4.setText("Kode Mata Pelajaran");
@@ -119,7 +116,7 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
                     .addComponent(txtJamMatpel)
                     .addComponent(txtKodeMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                     .addComponent(txtNamaMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         PanelDataMatpelLayout.setVerticalGroup(
             PanelDataMatpelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,8 +135,10 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        PanelTabelMatpel.setBackground(new java.awt.Color(204, 204, 255));
         PanelTabelMatpel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "DATA TABEL GURU", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
+        TMatpel.setBackground(new java.awt.Color(255, 255, 204));
         TMatpel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -159,22 +158,29 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
             PanelTabelMatpelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTabelMatpelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 428, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 305, Short.MAX_VALUE)
                 .addContainerGap())
         );
         PanelTabelMatpelLayout.setVerticalGroup(
             PanelTabelMatpelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTabelMatpelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
+        PanelPencarianMatpel.setBackground(new java.awt.Color(204, 204, 255));
         PanelPencarianMatpel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel28.setText("Cari Berdasarkan");
 
         CBCariMatpel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Matpel", "Nama Matpel" }));
+        CBCariMatpel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBCariMatpelActionPerformed(evt);
+            }
+        });
 
+        BCariMatpel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/search.png"))); // NOI18N
         BCariMatpel.setText("Cari");
         BCariMatpel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,14 +193,14 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
         PanelPencarianMatpelLayout.setHorizontalGroup(
             PanelPencarianMatpelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPencarianMatpelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addContainerGap()
                 .addComponent(jLabel28)
                 .addGap(6, 6, 6)
                 .addComponent(CBCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCariMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                .addComponent(txtCariMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         PanelPencarianMatpelLayout.setVerticalGroup(
@@ -203,31 +209,35 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelPencarianMatpelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel28)
-                    .addComponent(CBCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BCariMatpel))
+                    .addComponent(CBCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BCariMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
+        PanelButtonMatpel.setBackground(new java.awt.Color(204, 204, 255));
         PanelButtonMatpel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         PanelButtonMatpel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/add.png"))); // NOI18N
         BTambah.setText("Tambah");
         BTambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BTambahActionPerformed(evt);
             }
         });
-        PanelButtonMatpel.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, -1));
+        PanelButtonMatpel.add(BTambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, -1));
 
+        BEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/edit.png"))); // NOI18N
         BEdit.setText("Edit");
         BEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BEditActionPerformed(evt);
             }
         });
-        PanelButtonMatpel.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 80, -1));
+        PanelButtonMatpel.add(BEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, -1));
 
+        BSimpan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/save.png"))); // NOI18N
         BSimpan.setText("Simpan");
         BSimpan.setEnabled(false);
         BSimpan.addActionListener(new java.awt.event.ActionListener() {
@@ -235,16 +245,18 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
                 BSimpanActionPerformed(evt);
             }
         });
-        PanelButtonMatpel.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 80, -1));
+        PanelButtonMatpel.add(BSimpan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 120, -1));
 
+        BHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/delete.png"))); // NOI18N
         BHapus.setText("Hapus");
         BHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BHapusActionPerformed(evt);
             }
         });
-        PanelButtonMatpel.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 80, -1));
+        PanelButtonMatpel.add(BHapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 110, 30));
 
+        BBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/cancel.png"))); // NOI18N
         BBatal.setText("Batal");
         BBatal.setEnabled(false);
         BBatal.addActionListener(new java.awt.event.ActionListener() {
@@ -252,51 +264,46 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
                 BBatalActionPerformed(evt);
             }
         });
-        PanelButtonMatpel.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 80, -1));
+        PanelButtonMatpel.add(BBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 110, -1));
 
+        BKeluar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/close.png"))); // NOI18N
         BKeluar.setText("Keluar");
         BKeluar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BKeluarActionPerformed(evt);
             }
         });
-        PanelButtonMatpel.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 80, -1));
+        PanelButtonMatpel.add(BKeluar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 110, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(230, 230, 230))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(PanelButtonMatpel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(PanelDataMatpel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PanelPencarianMatpel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PanelButtonMatpel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addComponent(PanelTabelMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(PanelDataMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(PanelPencarianMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PanelTabelMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addComponent(PanelButtonMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PanelDataMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(PanelPencarianMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PanelButtonMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(PanelTabelMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(50, 50, 50))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(PanelPencarianMatpel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PanelTabelMatpel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -462,6 +469,10 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKodeMatpelActionPerformed
 
+    private void CBCariMatpelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBCariMatpelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CBCariMatpelActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -488,7 +499,6 @@ public class FInputDataMataPelajaran extends javax.swing.JFrame {
     private javax.swing.JPanel PanelTabelMatpel;
     private javax.swing.JTable TMatpel;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel4;
