@@ -167,6 +167,26 @@ public class FPembagianKelas extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        try {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+            String sql ="Select * from kelas WHERE tahun_ajaran ='" + txtTahunAjaran.getText() + "'";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs =st.executeQuery();
+            if (rs.next()) {
+                JOptionPane.showMessageDialog(this, "Tahun ajaran telah terdaftar !");
+                st.close();
+                conn.close();
+                return;
+            }
+        }
+        catch (ClassNotFoundException cnfe) {
+           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+        }
+        catch (SQLException sqle) {
+           System.out.println("Input  Gagal = " + sqle.getMessage());
+        }
+        
         int jumlah_perkelas = Integer.valueOf(txtJumlahSiswaBaru.getText())/Integer.valueOf(txtQuotaKelas.getText());
         int sisa = Integer.valueOf(txtJumlahSiswaBaru.getText())%Integer.valueOf(txtQuotaKelas.getText());
 
