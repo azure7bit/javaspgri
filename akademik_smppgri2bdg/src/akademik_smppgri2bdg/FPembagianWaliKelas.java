@@ -54,6 +54,8 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         txtStatusWaliKelas = new javax.swing.JTextField();
         txtGolonganWaliKelas = new javax.swing.JTextField();
         txtNamaWaliKelas = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        CBNIPGuru = new javax.swing.JComboBox();
         PanelButtonWaliKelas = new javax.swing.JPanel();
         BTambah = new javax.swing.JButton();
         BEdit = new javax.swing.JButton();
@@ -85,8 +87,12 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
 
         jLabel22.setText("Golongan");
 
-        CBKelas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--Pilih--", "X 1", "X 2", "X 3", "X 4", "X 5" }));
         CBKelas.setEnabled(false);
+        CBKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBKelasActionPerformed(evt);
+            }
+        });
 
         txtStatusWaliKelas.setEnabled(false);
         txtStatusWaliKelas.addActionListener(new java.awt.event.ActionListener() {
@@ -127,6 +133,15 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setText("NIP Wali Kelas");
+
+        CBNIPGuru.setEnabled(false);
+        CBNIPGuru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBNIPGuruActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout PanelDataWaliKelasLayout = new javax.swing.GroupLayout(PanelDataWaliKelas);
         PanelDataWaliKelas.setLayout(PanelDataWaliKelasLayout);
         PanelDataWaliKelasLayout.setHorizontalGroup(
@@ -137,23 +152,33 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addComponent(jLabel21)
-                    .addComponent(jLabel22))
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel6))
                 .addGap(20, 20, 20)
                 .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtStatusWaliKelas, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtGolonganWaliKelas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
-                    .addComponent(CBKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
+                    .addComponent(txtNamaWaliKelas)
+                    .addGroup(PanelDataWaliKelasLayout.createSequentialGroup()
+                        .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CBNIPGuru, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtStatusWaliKelas, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtGolonganWaliKelas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE))
+                            .addComponent(CBKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanelDataWaliKelasLayout.setVerticalGroup(
             PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelDataWaliKelasLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelDataWaliKelasLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
                 .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(CBKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(CBNIPGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtNamaWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,7 +190,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
                 .addGroup(PanelDataWaliKelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
                     .addComponent(txtGolonganWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout PanelTabelWaliKelasLayout = new javax.swing.GroupLayout(PanelTabelWaliKelas);
@@ -309,7 +334,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
                         .addComponent(jLabel28)
                         .addComponent(txtCariWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BCariWaliKelas))
-                    .addComponent(CBCariWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE))
+                    .addComponent(CBCariWaliKelas))
                 .addContainerGap())
         );
 
@@ -320,7 +345,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+                    .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PanelTabelWaliKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -334,7 +359,6 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(PanelButtonWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -343,7 +367,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
                         .addComponent(PanelPencarianWaliKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, 0, 0, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane1, 0, 300, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -353,7 +377,8 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     private void BTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTambahActionPerformed
         // TODO add your handling code here:
         CBKelas.setEnabled(true);
-        txtNamaWaliKelas.setEnabled(true);
+        CBNIPGuru.setEnabled(true);
+        txtNamaWaliKelas.setEnabled(false);
         txtStatusWaliKelas.setEnabled(false);
         txtGolonganWaliKelas.setEnabled(false);
         
@@ -365,14 +390,17 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         BBatal.setEnabled(true);
         BHapus.setEnabled(false);
         BKeluar.setEnabled(false);
-
+        
+        getKelas();
+        getNipGuru();
 }//GEN-LAST:event_BTambahActionPerformed
 
     private void BEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEditActionPerformed
         // TODO add your handling code here:
         
         CBKelas.setEnabled(false);
-        txtNamaWaliKelas.setEnabled(true);
+        CBNIPGuru.setEnabled(true);
+        txtNamaWaliKelas.setEnabled(false);
         txtStatusWaliKelas.setEnabled(false);
         txtGolonganWaliKelas.setEnabled(false);
 
@@ -392,6 +420,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     private void BSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSimpanActionPerformed
         // TODO add your handling code here:
        if(CBKelas.getSelectedItem().equals("--Pilih--") ||
+          CBNIPGuru.getSelectedItem().equals("--Pilih--") ||
           txtNamaWaliKelas.getText().isEmpty()  ||
           txtStatusWaliKelas.getText().isEmpty()  ||
           txtStatusWaliKelas.getText().isEmpty())
@@ -399,22 +428,40 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Data Tidak Lengkap!!");
 
            } else
-             if(BSimpan.getText().equalsIgnoreCase("Simpan"))
+             if(BSimpan.getText().equalsIgnoreCase("Simpan")) {
+                 
+                try {
+                    Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+                    Connection conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+                    String sql ="Select * from wali_kelas WHERE kelas ='" + CBKelas.getSelectedItem() + "'";
+                    PreparedStatement st = conn.prepareStatement(sql);
+                    ResultSet rs =st.executeQuery();
+                    if (rs.next()) {
+                        JOptionPane.showMessageDialog(this, "Wali kelas telah terdaftar untuk kelas ini !");
+                        st.close();
+                        conn.close();
+                        return;
+                    }
+                }
+                catch (ClassNotFoundException cnfe) {
+                System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+                }
+                catch (SQLException sqle) {
+                System.out.println("Input  Gagal = " + sqle.getMessage());
+                }                   
+                 
                 simpanData();
-             else
+             } else
                 rubahData();
 
         CBKelas.setSelectedItem("--Pilih--");
+        CBNIPGuru.setSelectedItem("--Pilih--");
         txtNamaWaliKelas.setText("");
         txtStatusWaliKelas.setText("");
         txtGolonganWaliKelas.setText("");
         
         CBKelas.setEnabled(false);
-        txtNamaWaliKelas.setEnabled(true);
-        txtStatusWaliKelas.setEnabled(true);
-        txtGolonganWaliKelas.setEnabled(true);
-
-        CBKelas.setEnabled(false);
+        CBNIPGuru.setEnabled(false);
         txtNamaWaliKelas.setEnabled(false);
         txtStatusWaliKelas.setEnabled(false);
         txtGolonganWaliKelas.setEnabled(false);
@@ -435,11 +482,13 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     private void BBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBatalActionPerformed
         // TODO add your handling code here:
         CBKelas.setSelectedItem("");
+        CBNIPGuru.setSelectedItem("");
         txtNamaWaliKelas.setText("");
         txtStatusWaliKelas.setText("");
         txtGolonganWaliKelas.setText("");
 
         CBKelas.setEnabled(false);
+        CBNIPGuru.setEnabled(false);
         txtNamaWaliKelas.setEnabled(false);
         txtStatusWaliKelas.setEnabled(false);
         txtGolonganWaliKelas.setEnabled(false);
@@ -561,6 +610,75 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCariWaliKelasActionPerformed
 
+    private void CBKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBKelasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CBKelasActionPerformed
+
+    private void CBNIPGuruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBNIPGuruActionPerformed
+        // TODO add your handling code here:
+        try {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+            String sql ="Select * from guru where nip = '" + CBNIPGuru.getSelectedItem() +"'";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs =st.executeQuery();
+            if (rs.next()) {
+                txtNamaWaliKelas.setText(rs.getString("nama_guru"));
+                txtStatusWaliKelas.setText(rs.getString("status_guru"));
+                txtGolonganWaliKelas.setText(rs.getString("golongan_guru"));
+            }
+        }
+        catch (ClassNotFoundException cnfe) {
+           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+        }
+        catch (SQLException sqle) {
+           System.out.println("Input  Gagal = " + sqle.getMessage());
+        }
+    }//GEN-LAST:event_CBNIPGuruActionPerformed
+
+    private void getNipGuru() {
+        try {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+            String sql ="Select * from guru order by nip";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs =st.executeQuery();
+            CBNIPGuru.addItem("--Pilih--");
+            CBNIPGuru.setSelectedItem("--Pilih--");
+            while (rs.next()) {
+                String nip = rs.getString("nip");
+                CBNIPGuru.addItem(nip);
+            }
+        }
+        catch (ClassNotFoundException cnfe) {
+           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+        }
+        catch (SQLException sqle) {
+           System.out.println("Input  Gagal = " + sqle.getMessage());
+        }
+    }
+    
+    private void getKelas() {
+        try {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            Connection conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+            String sql ="Select distinct nama_kelas from kelas order by nama_kelas";
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs =st.executeQuery();
+            CBKelas.addItem("--Pilih--");
+            CBKelas.setSelectedItem("--Pilih--");
+            while (rs.next()) {
+                String nip = rs.getString("nama_kelas");
+                CBKelas.addItem(nip);
+            }
+        }
+        catch (ClassNotFoundException cnfe) {
+           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+        }
+        catch (SQLException sqle) {
+           System.out.println("Input  Gagal = " + sqle.getMessage());
+        }
+    }
     /**
     * @param args the command line arguments
     */
@@ -571,6 +689,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BBatal;
@@ -582,6 +701,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     private javax.swing.JButton BTambah;
     private javax.swing.JComboBox CBCariWaliKelas;
     private javax.swing.JComboBox CBKelas;
+    private javax.swing.JComboBox CBNIPGuru;
     private javax.swing.JPanel PanelButtonWaliKelas;
     private javax.swing.JPanel PanelDataWaliKelas;
     private javax.swing.JPanel PanelPencarianWaliKelas;
@@ -593,6 +713,7 @@ public class FPembagianWaliKelas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtCariWaliKelas;
     private javax.swing.JTextField txtGolonganWaliKelas;
@@ -670,8 +791,27 @@ void ambilData_dari_JTable() {
     String nama_guru = tabModel.getValueAt(row, 2).toString();
     String status_guru = tabModel.getValueAt(row, 3).toString();
     String golongan_guru = tabModel.getValueAt(row, 4).toString();
+    String nip = null;
+    
+    try {
+        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+        Connection conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+        String sql ="Select * from guru WHERE nama_guru ='" + nama_guru + "'";
+        PreparedStatement st = conn.prepareStatement(sql);
+        ResultSet rs =st.executeQuery();
+        if (rs.next()) {
+            nip = rs.getString("nip");
+        }
+    }
+    catch (ClassNotFoundException cnfe) {
+        System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+    }
+    catch (SQLException sqle) {
+        System.out.println("Input  Gagal = " + sqle.getMessage());
+    }   
     
     CBKelas.setSelectedItem(kelas);
+    CBNIPGuru.setSelectedItem(nip);
     txtNamaWaliKelas.setText(nama_guru);
     txtStatusWaliKelas.setText(status_guru);
     txtGolonganWaliKelas.setText(golongan_guru);
@@ -732,6 +872,7 @@ public void rubahData() {
         tampilDataKeJTable();
 
         CBKelas.setSelectedItem("");
+        CBNIPGuru.setSelectedItem("");
         txtNamaWaliKelas.setText("");
         txtStatusWaliKelas.setText("");
         txtGolonganWaliKelas.setText("");
@@ -789,7 +930,8 @@ public void hapus_Data() {
         tampilDataKeJTable();
         JOptionPane.showMessageDialog(this,"Data Sudah dihapus");
         }
-        CBKelas.setSelectedItem("");
+        CBKelas.setSelectedItem("--Pilih--");
+        CBNIPGuru.setSelectedItem("--Pilih--");        
         txtNamaWaliKelas.setText("");
         txtStatusWaliKelas.setText("");
         txtGolonganWaliKelas.setText("");
