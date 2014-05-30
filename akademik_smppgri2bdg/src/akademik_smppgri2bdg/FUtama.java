@@ -11,13 +11,12 @@
 
 package akademik_smppgri2bdg;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -30,6 +29,8 @@ import net.sf.jasperreports.view.JasperViewer;
  */
 public class FUtama extends javax.swing.JFrame {
     Connection conn;
+    public DefaultTableModel tabModel2;
+    
     /** Creates new form FUtama */
     public FUtama()
     {
@@ -39,7 +40,7 @@ public class FUtama extends javax.swing.JFrame {
         Akademik.setVisible(false);
         Laporan.setVisible(false);
         PanelLogin.setVisible(true);
-
+        setJTable2();
     }
 
     /** This method is called from within the constructor to
@@ -51,6 +52,12 @@ public class FUtama extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TSiswa = new javax.swing.JTable();
+        jButton3 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         PanelLogin = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -87,6 +94,69 @@ public class FUtama extends javax.swing.JFrame {
         LaporanJadwal = new javax.swing.JMenuItem();
         LaporanNilai = new javax.swing.JMenuItem();
         LaporanSiswaPerKelas = new javax.swing.JMenuItem();
+        LaporanReportSiswa = new javax.swing.JMenuItem();
+
+        jLabel30.setText("Daftar Siswa");
+
+        TSiswa.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(TSiswa);
+
+        jButton3.setText("Pilih");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Batal");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialog1Layout.createSequentialGroup()
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 262, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                                .addComponent(jButton3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jButton2)))
+                .addContainerGap())
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEM INFORMASI AKADEMIK SMP PGRI 2 BANDUNG");
@@ -320,6 +390,14 @@ public class FUtama extends javax.swing.JFrame {
             }
         });
         Laporan.add(LaporanSiswaPerKelas);
+
+        LaporanReportSiswa.setText("Laporan Raport Siswa");
+        LaporanReportSiswa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanReportSiswaActionPerformed(evt);
+            }
+        });
+        Laporan.add(LaporanReportSiswa);
 
         MenuUtama.add(Laporan);
 
@@ -742,6 +820,112 @@ String reportSource;
             }
     }//GEN-LAST:event_LaporanSiswaPerKelasActionPerformed
 
+    private void LaporanReportSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanReportSiswaActionPerformed
+        // TODO add your handling code here:
+        jDialog1.setSize(343, 300);
+        jDialog1.setModal(true);
+        jDialog1.setLocationRelativeTo(this);
+        jDialog1.setVisible(true);        
+    }//GEN-LAST:event_LaporanReportSiswaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        if(TSiswa.getSelectedRow()==-1) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Terlebih Dahulu");
+        } else {
+            int row=TSiswa.getSelectedRow();
+            String nama_siswa = TSiswa.getValueAt(row, 2).toString();
+            
+           String reportSource;
+           String reportDest;
+
+           Map<String,Object> param=new HashMap<String,Object>();
+           param.put("nama_siswa",nama_siswa);
+
+           try{
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            String url = "jdbc:odbc:akademik_smppgri2bdg";
+            conn=DriverManager.getConnection(url, "root","");
+
+            reportSource=System.getProperty("user.dir")+"/Laporan/Laporan Raport Siswa.jrxml";
+            reportDest=System.getProperty("user.dir")+"/Laporan/Laporan Raport Siswa.html";
+
+            JasperReport jasperReport=JasperCompileManager.compileReport(reportSource);
+
+            JasperPrint jasperPrint=JasperFillManager.fillReport(jasperReport,param,conn);
+
+            JasperExportManager.exportReportToHtmlFile(jasperPrint,reportDest);
+
+            jDialog1.dispose();
+            JasperViewer.viewReport(jasperPrint,false);
+           }catch(Exception e){
+             System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+    private void setJTable2() {
+     String [] JudulKolom={"No","NIS","Nama Siswa"};
+    tabModel2 = new DefaultTableModel(null, JudulKolom){
+                  boolean[] canEdit = new boolean [] { false, false, false };
+                  @Override
+                  public boolean isCellEditable(int rowIndex, int columnIndex) {
+                   return canEdit [columnIndex];
+                  }
+              };
+    TSiswa.setModel(tabModel2);
+    TSiswa.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    TSiswa.getColumnModel().getColumn(0).setPreferredWidth(30);
+    TSiswa.getColumnModel().getColumn(1).setPreferredWidth(100);
+    TSiswa.getColumnModel().getColumn(2).setPreferredWidth(170);
+
+
+    getData2();
+    }
+    
+    private void getData2() {
+          try{
+        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+
+        conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+
+        String sql="Select * from siswa order by nis";
+        PreparedStatement st=conn.prepareStatement(sql);
+
+        ResultSet rs=st.executeQuery();
+
+        String nis,nama_siswa;
+        int no=0;
+        while(rs.next()){
+         no=no+1;
+         nis=rs.getString("nis");
+         nama_siswa=rs.getString("nama_siswa");
+         Object [] Data = {no,nis,nama_siswa};
+         tabModel2.addRow(Data);
+        }
+
+          st.close();
+          conn.close();
+    }
+    catch (ClassNotFoundException cnfe) {
+           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+           System.exit(0);
+    }
+    catch (SQLException sqle) {
+           System.out.println("Proses Query Gagal = " + sqle);
+           System.exit(0);
+    }
+    catch(Exception e){
+           System.out.println("Koneksi Access Gagal " +e.getMessage());
+           System.exit(0);
+    }
+
+    }
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        jDialog1.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -772,6 +956,7 @@ String reportSource;
     private javax.swing.JMenuItem LaporanKelas;
     private javax.swing.JMenuItem LaporanMatpel;
     private javax.swing.JMenuItem LaporanNilai;
+    private javax.swing.JMenuItem LaporanReportSiswa;
     private javax.swing.JMenuItem LaporanSiswa;
     private javax.swing.JMenuItem LaporanSiswaPerKelas;
     private javax.swing.JMenuItem LaporanWaliKelas;
@@ -783,13 +968,19 @@ String reportSource;
     private javax.swing.JMenuItem Penilaian;
     private javax.swing.JMenuItem Penjadwalan;
     private javax.swing.JMenuItem Registrasi;
+    private javax.swing.JTable TSiswa;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
