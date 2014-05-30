@@ -86,6 +86,7 @@ public class FUtama extends javax.swing.JFrame {
         LaporanWaliKelas = new javax.swing.JMenuItem();
         LaporanJadwal = new javax.swing.JMenuItem();
         LaporanNilai = new javax.swing.JMenuItem();
+        LaporanSiswaPerKelas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEM INFORMASI AKADEMIK SMP PGRI 2 BANDUNG");
@@ -311,6 +312,14 @@ public class FUtama extends javax.swing.JFrame {
             }
         });
         Laporan.add(LaporanNilai);
+
+        LaporanSiswaPerKelas.setText("Laporan Siswa Per Kelas");
+        LaporanSiswaPerKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanSiswaPerKelasActionPerformed(evt);
+            }
+        });
+        Laporan.add(LaporanSiswaPerKelas);
 
         MenuUtama.add(Laporan);
 
@@ -706,6 +715,33 @@ String reportSource;
         // TODO add your handling code here:
     }//GEN-LAST:event_CBJabatanUserActionPerformed
 
+    private void LaporanSiswaPerKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanSiswaPerKelasActionPerformed
+        // TODO add your handling code here:
+           String reportSource;
+           String reportDest;
+
+           Map<String,Object> param=new HashMap<String,Object>();
+
+           try{
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            String url = "jdbc:odbc:akademik_smppgri2bdg";
+            conn=DriverManager.getConnection(url, "root","");
+
+            reportSource=System.getProperty("user.dir")+"/Laporan/Laporan Siswa Per Kelas.jrxml";
+            reportDest=System.getProperty("user.dir")+"/Laporan/Laporan Siswa Per Kelas.html";
+
+            JasperReport jasperReport=JasperCompileManager.compileReport(reportSource);
+
+            JasperPrint jasperPrint=JasperFillManager.fillReport(jasperReport,param,conn);
+
+            JasperExportManager.exportReportToHtmlFile(jasperPrint,reportDest);
+
+            JasperViewer.viewReport(jasperPrint,false);
+           }catch(Exception e){
+             System.out.println(e);
+            }
+    }//GEN-LAST:event_LaporanSiswaPerKelasActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -737,6 +773,7 @@ String reportSource;
     private javax.swing.JMenuItem LaporanMatpel;
     private javax.swing.JMenuItem LaporanNilai;
     private javax.swing.JMenuItem LaporanSiswa;
+    private javax.swing.JMenuItem LaporanSiswaPerKelas;
     private javax.swing.JMenuItem LaporanWaliKelas;
     private javax.swing.JMenuItem Logout;
     private javax.swing.JMenuBar MenuUtama;
