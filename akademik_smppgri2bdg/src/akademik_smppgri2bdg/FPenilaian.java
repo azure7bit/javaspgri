@@ -28,12 +28,14 @@ import javax.swing.table.DefaultTableModel;
 public class FPenilaian extends javax.swing.JFrame {
     public DefaultTableModel tabModel;
     public DefaultTableModel tabModel2;
+    public DefaultTableModel tabModel3;
     Connection conn;
     /** Creates new form FPenilaian */
     public FPenilaian() {
         initComponents();
         setJTable();
         setJTable2();
+        setJTable3();
         config c = new config();
         txtKodeMatpel.setText(c.getKode());
         txtNamaMatpel.setText(c.getNamaPelajaran());
@@ -49,6 +51,7 @@ public class FPenilaian extends javax.swing.JFrame {
         NH3Guru.setEnabled(false);
         NUTSGuru.setEnabled(false);
         NUASGuru.setEnabled(false);
+        txtNamaKelas.setEnabled(false);
         txtNIS.setEnabled(false);
         txtNamaSiswa.setEnabled(false);
         NH1.setEnabled(false);
@@ -76,6 +79,12 @@ public class FPenilaian extends javax.swing.JFrame {
         TSiswa = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jDialog2 = new javax.swing.JDialog();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TKelas = new javax.swing.JTable();
+        BPilihKelas = new javax.swing.JButton();
+        BCancelKelas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -123,8 +132,8 @@ public class FPenilaian extends javax.swing.JFrame {
         txtNIS = new javax.swing.JTextField();
         BCariSiswa = new javax.swing.JButton();
         label1 = new java.awt.Label();
-        txtNIS1 = new javax.swing.JTextField();
-        BCariSiswa1 = new javax.swing.JButton();
+        txtNamaKelas = new javax.swing.JTextField();
+        BCariKelas = new javax.swing.JButton();
         PanelButtonGuru = new javax.swing.JPanel();
         BTambah = new javax.swing.JButton();
         BEdit = new javax.swing.JButton();
@@ -203,6 +212,68 @@ public class FPenilaian extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel31.setText("Daftar Kelas");
+
+        TKelas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2"
+            }
+        ));
+        jScrollPane3.setViewportView(TKelas);
+
+        BPilihKelas.setText("Pilih");
+        BPilihKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BPilihKelasActionPerformed(evt);
+            }
+        });
+
+        BCancelKelas.setText("Batal");
+        BCancelKelas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BCancelKelasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialog2Layout.createSequentialGroup()
+                        .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDialog2Layout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 264, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog2Layout.createSequentialGroup()
+                                .addComponent(BPilihKelas)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(BCancelKelas)))
+                .addContainerGap())
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BCancelKelas)
+                    .addComponent(BPilihKelas))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -418,7 +489,7 @@ public class FPenilaian extends javax.swing.JFrame {
                     .addComponent(NUASGuru, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel12))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
@@ -524,24 +595,24 @@ public class FPenilaian extends javax.swing.JFrame {
 
         label1.setText("Kelas");
 
-        txtNIS1.setEnabled(false);
-        txtNIS1.addActionListener(new java.awt.event.ActionListener() {
+        txtNamaKelas.setEnabled(false);
+        txtNamaKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNIS1ActionPerformed(evt);
+                txtNamaKelasActionPerformed(evt);
             }
         });
-        txtNIS1.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNamaKelas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNIS1KeyPressed(evt);
+                txtNamaKelasKeyPressed(evt);
             }
         });
 
-        BCariSiswa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/search.png"))); // NOI18N
-        BCariSiswa1.setText("Cari");
-        BCariSiswa1.setEnabled(false);
-        BCariSiswa1.addActionListener(new java.awt.event.ActionListener() {
+        BCariKelas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/search.png"))); // NOI18N
+        BCariKelas.setText("Cari");
+        BCariKelas.setEnabled(false);
+        BCariKelas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BCariSiswa1ActionPerformed(evt);
+                BCariKelasActionPerformed(evt);
             }
         });
 
@@ -564,26 +635,26 @@ public class FPenilaian extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(txtNIS, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(BCariSiswa, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))
+                                        .addComponent(BCariSiswa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txtNIS1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(BCariSiswa1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE))))
+                                        .addComponent(BCariKelas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addGap(13, 13, 13)
-                                .addComponent(txtNamaSiswa, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                                .addComponent(txtNamaSiswa))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel22)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel27)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(NUAS, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel24)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(NH2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel23)
@@ -591,19 +662,19 @@ public class FPenilaian extends javax.swing.JFrame {
                                         .addComponent(NH1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel25)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(NH3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                        .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(NUTS, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel28)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(NAKHIR, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
-                        .addComponent(BHitung, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))
+                        .addComponent(BHitung, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -614,8 +685,8 @@ public class FPenilaian extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BCariSiswa1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNIS1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BCariKelas, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNamaKelas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -796,7 +867,7 @@ public class FPenilaian extends javax.swing.JFrame {
         PanelTabelGuruLayout.setVerticalGroup(
             PanelTabelGuruLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelTabelGuruLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -872,6 +943,7 @@ public class FPenilaian extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (NH1Guru.getText().equals("0"))
         {
+            txtNamaKelas.setText("");
             txtNIS.setText("");
             txtNamaSiswa.setText("");
             NH1.setText("");
@@ -890,6 +962,7 @@ public class FPenilaian extends javax.swing.JFrame {
             NH3Guru.setEnabled(true);
             NUTSGuru.setEnabled(true);
             NUASGuru.setEnabled(true);
+            txtNamaKelas.setEnabled(false);
             txtNIS.setEnabled(false);
             txtNamaSiswa.setEnabled(false);
             NH1.setEnabled(true);
@@ -904,6 +977,7 @@ public class FPenilaian extends javax.swing.JFrame {
             BSimpan.setText("Simpan");
         
             BCariSiswa.setEnabled(true);
+            BCariKelas.setEnabled(true);
             BTambah.setEnabled(false);
             BSimpan.setEnabled(true);
             BEdit.setEnabled(false);
@@ -913,6 +987,7 @@ public class FPenilaian extends javax.swing.JFrame {
         }
         else
         {
+            txtNamaKelas.setText("");
             txtNIS.setText("");
             txtNamaSiswa.setText("");
             NH1.setText("");
@@ -932,6 +1007,7 @@ public class FPenilaian extends javax.swing.JFrame {
             NH3Guru.setEnabled(false);
             NUTSGuru.setEnabled(false);
             NUASGuru.setEnabled(false);
+            txtNamaKelas.setEnabled(false);
             txtNIS.setEnabled(false);
             txtNamaSiswa.setEnabled(false);
             NH1.setEnabled(true);
@@ -946,6 +1022,7 @@ public class FPenilaian extends javax.swing.JFrame {
             BSimpan.setText("Simpan");
 
             BCariSiswa.setEnabled(true);
+            BCariKelas.setEnabled(true);
             BTambah.setEnabled(false);
             BSimpan.setEnabled(true);
             BEdit.setEnabled(false);
@@ -959,6 +1036,7 @@ public class FPenilaian extends javax.swing.JFrame {
     private void BEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEditActionPerformed
         // TODO add your handling code here:
         CBKelas.setSelectedItem("--Pilih--");
+        txtNamaKelas.setText("");
         txtNIS.setText("");
         txtNamaSiswa.setText("");
         NH1.setText("");
@@ -977,6 +1055,7 @@ public class FPenilaian extends javax.swing.JFrame {
         NH3Guru.setEnabled(false);
         NUTSGuru.setEnabled(false);
         NUASGuru.setEnabled(false);
+        txtNamaKelas.setEnabled(false);
         txtNIS.setEnabled(false);
         txtNamaSiswa.setEnabled(false);
         NH1.setEnabled(true);
@@ -991,6 +1070,7 @@ public class FPenilaian extends javax.swing.JFrame {
         BSimpan.setText("Update");
 
         BCariSiswa.setEnabled(true);
+        BCariKelas.setEnabled(true);
         BTambah.setEnabled(false);
         BSimpan.setEnabled(true);
         BEdit.setEnabled(false);
@@ -1012,6 +1092,7 @@ public class FPenilaian extends javax.swing.JFrame {
            NH3Guru.getText().isEmpty() ||
            NUTSGuru.getText().isEmpty() ||
            NUASGuru.getText().isEmpty() ||
+           txtNamaKelas.getText().isEmpty() ||
            txtNIS.getText().isEmpty() ||
            txtNamaSiswa.getText().isEmpty() ||
            NH1.getText().isEmpty() ||
@@ -1039,6 +1120,7 @@ public class FPenilaian extends javax.swing.JFrame {
         NH3Guru.setEnabled(true);
         NUTSGuru.setEnabled(true);
         NUASGuru.setEnabled(true);
+        txtNamaKelas.setEnabled(true);
         txtNIS.setEnabled(true);
         txtNamaSiswa.setEnabled(true);
         NH1.setEnabled(true);
@@ -1059,6 +1141,7 @@ public class FPenilaian extends javax.swing.JFrame {
         NH3Guru.setEnabled(false);
         NUTSGuru.setEnabled(false);
         NUASGuru.setEnabled(false);
+        txtNamaKelas.setEnabled(false);
         txtNIS.setEnabled(false);
         txtNamaSiswa.setEnabled(false);
         NH1.setEnabled(false);
@@ -1071,6 +1154,7 @@ public class FPenilaian extends javax.swing.JFrame {
         Tahun.setEnabled(false);
 
         BCariSiswa.setEnabled(false);
+        BCariKelas.setEnabled(false);
         BTambah.setEnabled(true);
         BSimpan.setEnabled(false);
         BEdit.setEnabled(true);
@@ -1098,6 +1182,7 @@ public class FPenilaian extends javax.swing.JFrame {
         NH3Guru.setEnabled(false);
         NUTSGuru.setEnabled(false);
         NUASGuru.setEnabled(false);
+        txtNamaKelas.setEnabled(false);
         txtNIS.setEnabled(false);
         txtNamaSiswa.setEnabled(false);
         NH1.setEnabled(false);
@@ -1110,6 +1195,7 @@ public class FPenilaian extends javax.swing.JFrame {
         Tahun.setEnabled(false);
 
         BCariSiswa.setEnabled(false);
+        BCariKelas.setEnabled(false);
         BTambah.setEnabled(true);
         BSimpan.setEnabled(false);
         BEdit.setEnabled(true);
@@ -1129,6 +1215,7 @@ public class FPenilaian extends javax.swing.JFrame {
         NH3Guru.setEnabled(false);
         NUTSGuru.setEnabled(false);
         NUASGuru.setEnabled(false);
+        txtNamaKelas.setEnabled(false);
         txtNIS.setEnabled(false);
         txtNamaSiswa.setEnabled(false);
         NH1.setEnabled(false);
@@ -1141,6 +1228,7 @@ public class FPenilaian extends javax.swing.JFrame {
         Tahun.setEnabled(false);
 
         BCariSiswa.setEnabled(false);
+        BCariKelas.setEnabled(false);
         BTambah.setEnabled(true);
         BSimpan.setEnabled(false);
         BEdit.setEnabled(true);
@@ -1429,6 +1517,10 @@ public class FPenilaian extends javax.swing.JFrame {
 
     private void BCariSiswaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCariSiswaActionPerformed
         // TODO add your handling code here:
+        if (txtNamaKelas.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Silakan pilih kelas terlebih dahulu !");
+            return;
+        }
         jDialog1.setSize(343, 300);
         jDialog1.setModal(true);
         jDialog1.setLocationRelativeTo(this);
@@ -1457,17 +1549,21 @@ public class FPenilaian extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNISActionPerformed
 
-    private void txtNIS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNIS1ActionPerformed
+    private void txtNamaKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKelasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNIS1ActionPerformed
+    }//GEN-LAST:event_txtNamaKelasActionPerformed
 
-    private void txtNIS1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNIS1KeyPressed
+    private void txtNamaKelasKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNamaKelasKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNIS1KeyPressed
+    }//GEN-LAST:event_txtNamaKelasKeyPressed
 
-    private void BCariSiswa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCariSiswa1ActionPerformed
+    private void BCariKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCariKelasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BCariSiswa1ActionPerformed
+        jDialog2.setSize(343, 300);
+        jDialog2.setModal(true);
+        jDialog2.setLocationRelativeTo(this);
+        jDialog2.setVisible(true);
+    }//GEN-LAST:event_BCariKelasActionPerformed
 
     private void NUASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NUASActionPerformed
         // TODO add your handling code here:
@@ -1476,6 +1572,22 @@ public class FPenilaian extends javax.swing.JFrame {
     private void txtCariNilaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariNilaiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCariNilaiActionPerformed
+
+    private void BPilihKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPilihKelasActionPerformed
+        // TODO add your handling code here:
+        if(TKelas.getSelectedRow()==-1) {
+            JOptionPane.showMessageDialog(this, "Silahkan Pilih Data Terlebih Dahulu");
+        } else {
+            int row=TKelas.getSelectedRow();
+            txtNamaKelas.setText(TKelas.getValueAt(row, 1).toString());
+            jDialog2.dispose();
+        }
+    }//GEN-LAST:event_BPilihKelasActionPerformed
+
+    private void BCancelKelasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCancelKelasActionPerformed
+        // TODO add your handling code here:
+        jDialog2.dispose();
+    }//GEN-LAST:event_BCancelKelasActionPerformed
     
     /**
     * @param args the command line arguments
@@ -1491,13 +1603,15 @@ public class FPenilaian extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BBatal;
+    private javax.swing.JButton BCancelKelas;
+    private javax.swing.JButton BCariKelas;
     private javax.swing.JButton BCariNilai;
     private javax.swing.JButton BCariSiswa;
-    private javax.swing.JButton BCariSiswa1;
     private javax.swing.JButton BEdit;
     private javax.swing.JButton BHapus;
     private javax.swing.JButton BHitung;
     private javax.swing.JButton BKeluar;
+    private javax.swing.JButton BPilihKelas;
     private javax.swing.JButton BSimpan;
     private javax.swing.JButton BTambah;
     private javax.swing.JComboBox CBCariNilai;
@@ -1516,12 +1630,14 @@ public class FPenilaian extends javax.swing.JFrame {
     private javax.swing.JPanel PanelButtonGuru;
     private javax.swing.JPanel PanelPencarianGuru;
     private javax.swing.JPanel PanelTabelGuru;
+    private javax.swing.JTable TKelas;
     private javax.swing.JTable TNilai;
     private javax.swing.JTable TSiswa;
     private javax.swing.JTextField Tahun;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1544,6 +1660,7 @@ public class FPenilaian extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1554,12 +1671,13 @@ public class FPenilaian extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private java.awt.Label label1;
     private javax.swing.JTextField txtCariNilai;
     private javax.swing.JTextField txtKodeMatpel;
     private javax.swing.JTextField txtNIS;
-    private javax.swing.JTextField txtNIS1;
     private javax.swing.JTextField txtNamaGuru;
+    private javax.swing.JTextField txtNamaKelas;
     private javax.swing.JTextField txtNamaMatpel;
     private javax.swing.JTextField txtNamaSiswa;
     // End of variables declaration//GEN-END:variables
@@ -1690,12 +1808,13 @@ void ambilData_dari_JTable() {
     txtKodeMatpel.setText(kode_mata_pelajaran);
     txtNamaMatpel.setText(nama_mata_pelajaran);
     txtNamaGuru.setText(nama_guru);
-    CBKelas.setSelectedItem(nama_kelas);
+    //CBKelas.setSelectedItem(nama_kelas);
     NH1Guru.setText(persentase_nh1);
     NH2Guru.setText(persentase_nh2);
     NH3Guru.setText(persentase_nh3);
     NUTSGuru.setText(persentase_nuts);
     NUASGuru.setText(persentase_nuas);
+    txtNamaKelas.setText(nama_kelas);
     txtNIS.setText(nis);
     txtNamaSiswa.setText(nama_siswa);
     NH1.setText(nh1);
@@ -1776,7 +1895,8 @@ public void rubahData() {
           st.setString(1, txtKodeMatpel.getText());
           st.setString(2, txtNamaMatpel.getText());
           st.setString(3, txtNamaGuru.getText());
-          st.setString(4, String.valueOf(CBKelas.getSelectedItem()));
+          //st.setString(4, String.valueOf(CBKelas.getSelectedItem()));
+          st.setString(4, txtNamaKelas.getText());
           st.setString(5, NH1Guru.getText());
           st.setString(6, NH2Guru.getText());
           st.setString(7, NH3Guru.getText());
@@ -1789,11 +1909,13 @@ public void rubahData() {
           st.setString(14, NUTS.getText());
           st.setString(15, NUAS.getText());
           st.setString(16, NAKHIR.getText());
-          st.setString(17, txtNIS.getText());
-          st.setString(18, Tahun.getText());
+          st.setString(17, Tahun.getText());
+          st.setString(18, txtNIS.getText());
           st.executeUpdate();
           
         tampilDataKeJTable();
+        st.close();
+        conn.close();
 
         txtKodeMatpel.setText("");
         txtNamaMatpel.setText("");
@@ -1804,6 +1926,7 @@ public void rubahData() {
         NH3Guru.setText("");
         NUTSGuru.setText("");
         NUASGuru.setText("");
+        txtNamaKelas.setText("");
         txtNIS.setText("");
         txtNamaSiswa.setText("");
         NH1.setText("");
@@ -1829,7 +1952,8 @@ public void simpanData(){
                 st.setString(1, txtKodeMatpel.getText());
                 st.setString(2, txtNamaMatpel.getText());
                 st.setString(3, txtNamaGuru.getText());
-                st.setString(4, String.valueOf(CBKelas.getSelectedItem()));
+                //st.setString(4, String.valueOf(CBKelas.getSelectedItem()));
+                st.setString(4, txtNamaKelas.getText());
                 st.setString(5, NH1Guru.getText());
                 st.setString(6, NH2Guru.getText());
                 st.setString(7, NH3Guru.getText());
@@ -1876,7 +2000,7 @@ public void hapus_Data() {
         String sql = "DELETE FROM nilai WHERE kode_mata_pelajaran = ? and nama_kelas = ? and nis = ?";
         PreparedStatement st = conn.prepareStatement(sql);
         st.setString(1, txtKodeMatpel.getText());
-        st.setString(2, String.valueOf(CBKelas.getSelectedItem()));
+        st.setString(2, txtNamaKelas.getText());
         st.setString(3, txtNIS.getText());
         int rs=st.executeUpdate();
         if(rs>0){
@@ -1977,6 +2101,7 @@ public void hapus_Data() {
         NH3Guru.setEnabled(true);
         NUTSGuru.setEnabled(true);
         NUASGuru.setEnabled(true);
+        txtNamaKelas.setEnabled(true);
         txtNIS.setEnabled(true);
         txtNamaSiswa.setEnabled(false);
         NH1.setEnabled(true);
@@ -2011,6 +2136,23 @@ public void hapus_Data() {
     getData2();
     }
 
+    private void setJTable3() {
+        String [] JudulKolom={"No", "Nama Kelas"};
+        tabModel3 = new DefaultTableModel(null, JudulKolom){
+                  boolean[] canEdit = new boolean [] { false, false };
+                  @Override
+                  public boolean isCellEditable(int rowIndex, int columnIndex) {
+                   return canEdit [columnIndex];
+                  }
+              };
+    TKelas.setModel(tabModel3);
+    TKelas.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+    TKelas.getColumnModel().getColumn(0).setPreferredWidth(30);
+    TKelas.getColumnModel().getColumn(1).setPreferredWidth(100);
+
+    getKelas();
+    }
+    
     private void getData2() {
           try{
         Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
@@ -2049,5 +2191,42 @@ public void hapus_Data() {
     }
 
     }
+    
+    private void getKelas() {
+        try{
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+
+            conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+
+            String sql="Select distinct nama_kelas from kelas order by nama_kelas";
+            PreparedStatement st=conn.prepareStatement(sql);
+
+            ResultSet rs=st.executeQuery();
+
+            String nama_kelas;
+            int no=0;
+            while(rs.next()){
+                no=no+1;
+                nama_kelas=rs.getString("nama_kelas");
+                Object [] Data = {no,nama_kelas};
+                tabModel3.addRow(Data);
+            }
+            st.close();
+            conn.close();
+        }
+        catch (ClassNotFoundException cnfe) {
+            System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+            System.exit(0);
+        }
+        catch (SQLException sqle) {
+            System.out.println("Proses Query Gagal = " + sqle);
+            System.exit(0);
+        }
+        catch(Exception e){
+            System.out.println("Koneksi Access Gagal " +e.getMessage());
+            System.exit(0);
+        }
+
+        }    
 }
 
