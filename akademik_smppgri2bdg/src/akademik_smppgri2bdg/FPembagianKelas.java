@@ -30,6 +30,7 @@ import javax.swing.JTable;
 public class FPembagianKelas extends javax.swing.JFrame {
     public DefaultTableModel tabModel;
     Connection conn;
+    public static final Integer CLASS_QUOTA = 25;
     /** Creates new form FPembagianKelas */
     public FPembagianKelas() {
         initComponents();
@@ -186,45 +187,87 @@ public class FPembagianKelas extends javax.swing.JFrame {
         catch (SQLException sqle) {
            System.out.println("Input  Gagal = " + sqle.getMessage());
         }
-        
-        int jumlah_perkelas = Integer.valueOf(txtJumlahSiswaBaru.getText())/Integer.valueOf(txtQuotaKelas.getText());
-        int sisa = Integer.valueOf(txtJumlahSiswaBaru.getText())%Integer.valueOf(txtQuotaKelas.getText());
 
-        for(int i=1;i<=Integer.valueOf(txtQuotaKelas.getText());i++){
+        int jumlah_siswa_baru = Integer.valueOf(txtJumlahSiswaBaru.getText());
+        int jumlah_kelas = Integer.valueOf(txtQuotaKelas.getText());
+        if (jumlah_siswa_baru / CLASS_QUOTA > jumlah_kelas) {
+            JOptionPane.showMessageDialog(this, "Jumlah siswa melebihi kuota kelas !");
+            return;            
+        }
+        int i = 1;
+        while (jumlah_siswa_baru > 0) {
             try{
             Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
             conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
             String sql="Insert into kelas values(?,?,?)";
             PreparedStatement st=conn.prepareStatement(sql);
                 st.setString(1, txtTahunAjaran.getText());
-                if (sisa!=0 && i==Integer.valueOf(txtQuotaKelas.getText()))
-                {
-                st.setString(2, String.valueOf(jumlah_perkelas + sisa));
-                }
-                else
-                {
-                st.setString(2, String.valueOf(jumlah_perkelas));
+                if (jumlah_siswa_baru > CLASS_QUOTA) {
+                    st.setString(2, String.valueOf(CLASS_QUOTA));
+                } else {
+                    st.setString(2, String.valueOf(jumlah_siswa_baru));
                 }
                 st.setString(3, "X "+i);
-            int rs=st.executeUpdate();
-
-            if(rs>0){
-            JOptionPane.showMessageDialog(this,"Input Berhasil");
-      	    tampilDataKeJTable();
+                int rs=st.executeUpdate();
+                
+                if(rs>0){
+                JOptionPane.showMessageDialog(this,"Input Berhasil");
+                tampilDataKeJTable();
+                }
+                st.close();
+                conn.close();
+                
+                i++;
+                jumlah_siswa_baru = jumlah_siswa_baru - CLASS_QUOTA;
             }
-            st.close();
-            conn.close();
+            catch (ClassNotFoundException cnfe) {
+            System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+            }
+            catch (SQLException sqle) {
+            System.out.println("Input  Gagal = " + sqle.getMessage());
+            }
+            catch(Exception e){
+            System.out.println("Koneksi Gagal " +e.getMessage());
+            }
         }
-        catch (ClassNotFoundException cnfe) {
-           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
-        }
-        catch (SQLException sqle) {
-           System.out.println("Input  Gagal = " + sqle.getMessage());
-        }
-        catch(Exception e){
-           System.out.println("Koneksi Gagal " +e.getMessage());
-        }
-        }
+//        int jumlah_perkelas = Integer.valueOf(txtJumlahSiswaBaru.getText())/Integer.valueOf(txtQuotaKelas.getText());
+//        int sisa = Integer.valueOf(txtJumlahSiswaBaru.getText())%Integer.valueOf(txtQuotaKelas.getText());
+//
+//        for(int i=1;i<=Integer.valueOf(txtQuotaKelas.getText());i++){
+//            try{
+//            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+//            conn=DriverManager.getConnection("jdbc:odbc:akademik_smppgri2bdg");
+//            String sql="Insert into kelas values(?,?,?)";
+//            PreparedStatement st=conn.prepareStatement(sql);
+//                st.setString(1, txtTahunAjaran.getText());
+//                if (sisa!=0 && i==Integer.valueOf(txtQuotaKelas.getText()))
+//                {
+//                st.setString(2, String.valueOf(jumlah_perkelas + sisa));
+//                }
+//                else
+//                {
+//                st.setString(2, String.valueOf(jumlah_perkelas));
+//                }
+//                st.setString(3, "X "+i);
+//            int rs=st.executeUpdate();
+//
+//            if(rs>0){
+//            JOptionPane.showMessageDialog(this,"Input Berhasil");
+//      	    tampilDataKeJTable();
+//            }
+//            st.close();
+//            conn.close();
+//        }
+//        catch (ClassNotFoundException cnfe) {
+//           System.out.println("Class Driver tidak ditemukan.. : " + cnfe);
+//        }
+//        catch (SQLException sqle) {
+//           System.out.println("Input  Gagal = " + sqle.getMessage());
+//        }
+//        catch(Exception e){
+//           System.out.println("Koneksi Gagal " +e.getMessage());
+//        }
+//        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

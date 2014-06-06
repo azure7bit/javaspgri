@@ -95,6 +95,7 @@ public class FUtama extends javax.swing.JFrame {
         LaporanNilai = new javax.swing.JMenuItem();
         LaporanSiswaPerKelas = new javax.swing.JMenuItem();
         LaporanReportSiswa = new javax.swing.JMenuItem();
+        LaporanAbsen = new javax.swing.JMenuItem();
 
         jLabel30.setText("Daftar Siswa");
 
@@ -398,6 +399,14 @@ public class FUtama extends javax.swing.JFrame {
             }
         });
         Laporan.add(LaporanReportSiswa);
+
+        LaporanAbsen.setText("Laporan Absen");
+        LaporanAbsen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LaporanAbsenActionPerformed(evt);
+            }
+        });
+        Laporan.add(LaporanAbsen);
 
         MenuUtama.add(Laporan);
 
@@ -926,6 +935,33 @@ String reportSource;
         jDialog1.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void LaporanAbsenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LaporanAbsenActionPerformed
+        // TODO add your handling code here:
+        String reportSource;
+           String reportDest;
+
+           Map<String,Object> param=new HashMap<String,Object>();
+
+           try{
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            String url = "jdbc:odbc:akademik_smppgri2bdg";
+            conn=DriverManager.getConnection(url, "root","");
+
+            reportSource=System.getProperty("user.dir")+"/Laporan/Laporan Absen.jrxml";
+            reportDest=System.getProperty("user.dir")+"/Laporan/Laporan Absen.html";
+
+            JasperReport jasperReport=JasperCompileManager.compileReport(reportSource);
+
+            JasperPrint jasperPrint=JasperFillManager.fillReport(jasperReport,param,conn);
+
+            JasperExportManager.exportReportToHtmlFile(jasperPrint,reportDest);
+
+            JasperViewer.viewReport(jasperPrint,false);
+           }catch(Exception e){
+             System.out.println(e);
+            }
+    }//GEN-LAST:event_LaporanAbsenActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -951,6 +987,7 @@ String reportSource;
     private javax.swing.JMenuItem InputUser;
     private javax.swing.JMenuItem Keluar;
     private javax.swing.JMenu Laporan;
+    private javax.swing.JMenuItem LaporanAbsen;
     private javax.swing.JMenuItem LaporanGuru;
     private javax.swing.JMenuItem LaporanJadwal;
     private javax.swing.JMenuItem LaporanKelas;
